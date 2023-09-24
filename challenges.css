@@ -1,0 +1,100 @@
+/* --- overall difficulty section --- */
+.difficulty-box{
+    width: 35%;
+    height: 100%;
+    margin: 50px auto;
+    background-color: #00a898;
+    color: #222;
+    border-radius: 20px;
+    padding: 15px 0px 30px;
+}
+
+/* --- welcome to challenges --- */
+.diff-head{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    font-family: comic sans ms;
+    margin: 0 auto 5px;
+    text-align: center;
+}
+
+.difficulty-box hr{
+    background-color: yellow;
+    height: 3px;
+    width: 77%;
+    margin: auto;
+    border: none;
+}
+
+/* --- challenge description --- */
+.diff-describe{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* --- radio button section --- */
+.difficulty-container {
+    text-align: center;
+    height: 54%;
+}
+
+.difficulty-container div{
+    width: 25%;
+    margin: 12px auto;
+}
+
+/* --- arrangement of radios --- */
+#easy, #hard{
+    margin-left: -32px;
+}
+
+
+.difficulty-container div input{
+    cursor: pointer;
+}
+
+.difficulty-container div label{
+    font-size: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.difficulty-container div label:hover{
+    color: beige;
+}
+
+#divMed{
+    width: 35%;
+}
+
+/* --- play button --- */
+#play {
+width: 30%;
+margin-top: 12px;
+padding: 10px 0px;
+border: none;
+font-size: 20px;
+border-radius: 12px;
+cursor: pointer;
+background-color: yellow;
+}
+
+#play:hover {
+color: yellow;
+background: black;
+}
+
+@media (max-width: 1330px) {
+    #medium{
+        flex-basis: 50%;
+        margin-left: 0px;
+    }
+    #medLabel{
+        flex-basis: 50%;
+        margin-left: 8px;
+    }
+}

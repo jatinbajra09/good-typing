@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="challenges.css">
+    <link rel="stylesheet" href="chall.css">
+    <title>Challenges | Medium - Level 1</title>
+    
+</head>
+<body>
+     <!-- nav -->
+     <header>
+        <div class="container">
+
+            <!-- logo -->
+            <div>
+                <a href="home.html"><img src="JustType-1-1.png" alt="Logo" id="logo-image" class="logo"></a>
+            </div>
+            
+            <!-- first nav bar links -->
+            <nav>
+                <ul>
+                    <li><a href="home.html" id="shortcut-home">Home</a></li>
+                    <li><a class="a" href="challenges.html" id="shortcut-chall">Challenges</a></li>
+                    <li><a href="#section" id="shortcut-about">About</a></li>
+                    <li><a href="tutorial.html" id="shortcut-tut">Tutorial</a></li>
+                    <li><a href="account.html" id="shortcut-acc">Account</a></li>
+                </ul>
+            </nav>
+
+            <!-- dark mode toggle button -->
+            <div class="toggle-wrapper">
+                <input type="checkbox" id="toggle" class="toggle">
+                <label for="toggle" class="toggle-btn"></label>
+            </div>
+        </div>
+
+        <!-- second navbar for levels links -->
+        <nav class="secondnav">
+            <ul>
+                <li id="diffname">Medium: </li>
+                <li><a class="aa" href="medium.html" id="level1">Level 1</a></li>
+                <li><a href="medlev2.html" id="level2">Level 2</a></li>
+                <li><a href="medlev3.html" id="level3">Level 3</a></li>
+                <li><a href="medlev4.html" id="level4">Level 4</a></li>
+                <li><a href="medlev5.html" id="level5">Level 5</a></li>
+            </ul>
+        </nav>
+        
+     </header>
+
+    <div class="main-container">
+
+     <!-- difficulty section -->
+    <div class="difficulty-box">
+
+        <div class="difficulty-container">
+            <div id="divEasy">
+                <input type="radio" name="difficulty" id="easy" value="easy">
+                <label for="easy">Easy</label>
+            </div>
+            <div >
+                <input type="radio" name="difficulty" id="medium" value="medium">
+                <label id="labelMedium" for="medium">Medium</label>
+            </div>
+            <div id="divHard">
+                <input type="radio" name="difficulty" id="hard" value="hard">
+                <label for="hard">Hard</label>
+            </div>
+            <button id="play">Play</button>
+        </div>
+
+        <div class="ruleLev">
+            <h3>Rules to complete level 1:</h3>
+            <ul type="none" class="rulesList">
+                <li>i. 52 wpm</li>
+                <li>ii. 86% accuracy</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- timer -->
+    <div id="timerMessage"></div>
+    
+    <!-- typing -->
+    <div class="contain">
+        
+        <!-- paragraphs section -->
+        <input type="text" class="input-field">
+        <div class="content-box">
+            <div class="text-of-typing">
+                <p></p>
+            </div>
+            
+            <!-- details bar -->
+            <div class="content">
+                <ul class="result">
+                    <li class="time">
+                        <p>Time</p>
+                        <span>30</span>
+                    </li>
+                    <li class="errors">
+                        <p>Errors</p>
+                        <span>0</span>
+                    </li>
+                    <li class="wpm">
+                        <p>WPM</p>
+                        <span>0</span>
+                    </li>
+                    <li class="cpm">
+                        <p>CPM</p>
+                        <span>0</span>
+                    </li>
+                    <li class="accuracy">
+                        <p>Accuracy</p>
+                        <span>0%</span>
+                    </li>
+                </ul>      
+            </div>
+        </div>
+        <button>Try Again</button>
+    </div>
+    </div>
+
+    <!-- shortcut button -->
+    <div class="butcombo">
+        <h5><key class="key">alt</key> + <key class="key">n</key> = <key >restart test</key></h5>
+    </div>
+
+    <!-- About Section -->
+    <div class="section" id="section">
+        <h1 id="secHead">About</h1>
+        <section id="about-section">
+            <div class="about" id="whatIsTT">
+                <h3 class="about-title">What is a Typing Test?</h3>
+                <p>A typing test is a practical test used to measure a person's typing speed and accuracy. A typing test usually involves a passage you must type in a given time limit. This test will determine how many words you can type per minute, also called WPM. It will also calculate if you have made any errors while typing; the final result will depend on these factors.</p>
+            </div>
+
+            <div class="about" id="howJTHelps">
+                <h3 class="about-title">How does JustType improve your Typing Speed?</h3>
+                <p>JustType project has implemented a built-in fixed set of paragraphs  to generate meaningful passages that will be randomly generated for every test. Basically, you will get different passages for every test, and the passages may be repeated. This allows JustType to provide you with a real-life platform where you can practice and significantly improve your typing speed.</p>
+            </div>
+
+            <div class="about" id="howToImproveTS">
+                <h3 class="about-title">How to improve Typing Speed?</h3>
+                <p>Typing speed has become a very important topic in recent years, thanks to various jobs that require a lot of typing from the user. Increasing your typing speed is a must if you plan to work for such companies in the future. But increasing your typing speed is more than just hitting the keys as fast as possible. It is very easy to use JustType, you just have to follow our instructions to improve typing speed.<br><br>Faster typing speed won't mean anything if there are a lot of typing errors, punctuation errors, among other issues. So, today, we will show you how to increase your typing speed without making errors.</p>
+            </div>
+                
+            <div class="about" id="whyJTDifferent">
+                <h3 class="about-title">What makes JustType's typing test different from others?</h3>
+                <p>JustType is user-friendly and intuitive user interface allows users to achieve better results. Challenges are available with various difficulties as well as levels which provide you a better platform that will help you increase your speed in the long run. It also includes passages with cases, numbers, punctuations or mix.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- FAQs Section -->
+    <div class="section" id="FAQsection">
+        <h1 id="secHead">Frequently Asked Questions (FAQs)</h1>
+        <section id="faq-section">
+            <div class="faq" id="">
+                <h3 class="faq-title">What kind of passages will you get?</h3>
+                <p>You will get different passages with every test, but the passages may be repeated, and which passage you get is completely random and cannot be changed. This is done to prevent cheating.</p>
+                <h3 class="faq-title">Does JustType allow you to set the timer?</h3>
+                <p>On JustType's website, you can choose from a set of different timers. Options are 15 seconds, 30 seconds, 45 seconds and 60 seconds, but by default, timer is set to 30 seconds.</p>
+                <h3 class="faq-title">Will it show errors as you type?</h3>
+                <p>When you mistype a letter or a word, it will show the number of errors you made in a given passage in real time. This will help you to type more accurately.</p>
+                <h3 class="faq-title">I want to see characters per minute (CPM) instead of words per minute (WPM). Can I change that?</h3>
+                <p>The counter at the top of the test displays words per minute and characters per minute simultaneously. You don't have to do anything; by default, both are set to display.</p>
+            </div>
+            
+        </section>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer">
+
+          <!-- copyright text   -->
+          <p>&copy; 2023 JustType - Typing Test. All rights reserved.</p>
+
+          <!-- footer links -->
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          
+          <!-- scroll up button -->
+          <a href="#top" class="scroll-to-top">&#8593;</a>
+        </div>
+    </footer>
+
+    <!-- challenges js -->
+    <script src="JS/challenges.js"></script>
+
+    <!-- dark mode js -->
+    <script src="JS/darkmode.js"></script>
+    
+    <!-- js for typing -->
+    <script src="JS/casesParagraphs.js"></script>
+    <!-- <script src="JS/app.js"></script> -->
+    <script src="JS/easyFunc.js"></script>
+
+    <!-- js for scroll-up button in footer -->
+    <script src="JS/scroll.js"></script>
+
+</body>
+</html>

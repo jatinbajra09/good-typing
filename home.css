@@ -1,0 +1,502 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: black; /* Default text color */
+    min-height: 100vh;
+    background: #ccc;
+}
+
+/* --- nav --- */
+header{
+  background-color: #00A898;
+  width: 100%;
+  height: 100%;
+  /* position: sticky;
+  top: 0; */
+}
+
+.container, .secondnav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 20px;
+}
+
+/* --- first nav bar --- */
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+/* --- first nav bar links --- */
+nav ul li a {
+  color: beige;
+  text-decoration: none;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 8px;
+  /* color: inherit; Inherit text color */
+}
+
+nav ul li a:hover{
+  background-color: black;
+  color: yellow;
+  
+}
+
+/* --- exquisite nav link in first nav bar --- */
+.a{
+  background-color: yellow;
+  color: black;
+}
+.a:hover{
+  color: yellow;
+}
+
+/* --- dark mode toggle button --- */
+.toggle-wrapper {
+  position: relative;
+}
+
+.toggle-wrapper .toggle {
+  display: none;
+}
+
+.toggle-wrapper .toggle-btn {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-wrapper .toggle-btn:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: beige; /* Toggle button color in light mode */
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+  transition: transform 0.3s;
+}
+
+.toggle-wrapper .toggle:checked + .toggle-btn {
+  background-color: black;
+}
+
+.toggle-wrapper .toggle:checked + .toggle-btn:before {
+  transform: translateX(20px);
+  background-color: beige; /* Toggle button color in dark mode */
+}
+
+.dark-mode {
+  background-color: #333;
+  color: beige; /* Text color in dark mode */
+}
+
+/* --- logo size --- */
+.logo {
+  max-width: 150px;
+  height: 90px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* --- responsive screen --- */
+@media screen and (max-width: 530px) {
+  .container, nav ul {
+    flex-direction: column;   
+  }
+  
+  nav ul li {
+    margin: 10px auto;
+    margin-left: 15px;
+  }
+  nav{
+    flex-wrap: wrap;
+  }
+  nav ul li .a{
+    margin-left: 5px;
+  }
+}
+
+/* Adjust the logo size and toggle button for extra small screens */
+@media screen and (max-width: 530px) {
+  .logo {
+      max-width: 150px;
+      height: 90px;
+      margin: 10px 0px 20px -10px;
+      align-items: flex-start;
+  }
+
+  .toggle-wrapper {
+    margin: 10px 0px 10px -10px;
+  }
+}
+
+/* --- second nav bar --- */
+.secondnav, .levelsnav{
+  background-color: #555;
+  padding: 10px 0px;
+  justify-content: center;
+}
+
+#diffname{
+  color: yellow;
+}
+
+/* --- second nav bar links --- */
+.secondnav ul li a{
+    color: yellow;
+}
+.secondnav ul li a:hover{
+    background-color: #555;
+    color: beige;
+    /* font-weight: bold; */
+}
+
+/* --- time variations --- */
+/* #timeSelect{
+  cursor: pointer;
+  outline: 0px;
+  border: none;
+  border-radius: 8px;
+} */
+
+/* --- exquisite nav link in second nav bar --- */
+.secondnav .aa{
+    color: black;
+    background-color: #ccc;
+}
+
+/* --- timer message --- */
+#timerMessage{
+    color: inherit;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* --- typing main body --- */
+.contain {
+    margin: 40px auto;
+    margin-bottom: 30px;
+    background-color: #00A898;
+    color: #000;
+    width: 850px;
+    height: 370px;
+    border-radius: 15px;
+    padding: 20px 30px;
+    position: relative;
+    box-shadow: 0 0 10px yellow;
+}
+
+.contain .input-field {
+    z-index: -999;
+    opacity: 0;
+    position: absolute;
+}
+
+/* --- paragraph section --- */
+.content-box .text-of-typing {
+    max-height: 255px;
+    max-width: 600px;
+    overflow-y: auto;
+}
+
+/* --- paragraphs --- */
+.text-of-typing{
+    margin-top: -120px;
+}
+
+.content-box .text-of-typing::-webkit-scrollbar {
+    width: 0;
+}
+
+/* --- paragraphs texts --- */
+.content-box .text-of-typing p {
+    text-align: justify;
+    font-size: 23px;
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+.content-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: -60px;
+}
+
+/* --- details bar --- */
+.content-box .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 17%;
+    text-align: center;
+    line-height: 32px;
+}
+/* --- details --- */
+.content .result {
+    padding: 5px 10px;
+    border-radius: 12px;
+    background-color: #00A898;
+    color: beige;
+    display: block;
+    text-shadow: 0 0 2px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px yellow;
+
+}
+.content .result li {
+    border-bottom: 1px solid yellow;
+    list-style: none;
+}
+.content .result li:last-child {
+    border-bottom: none;
+}
+
+.result li.time,
+.result li.errors,
+.result li.wpm,
+.result li.cpm {
+    font-size: 17px;
+}
+.result li.time p,
+.result li.errors p, 
+.result li.wpm p,
+.result li.cpm p,
+.result li.accuracy p{
+    font-weight: 600;
+}
+
+/* --- try again button --- */
+.contain button {
+    width: 30%;
+    position: absolute;
+    margin-left: 25px;
+    height: 13%;
+    border: none;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: yellow;
+}
+.contain button:hover {
+    color: yellow;
+    background: black;
+}
+
+/* --- paragraph text color if correct --- */
+.text-of-typing p span.correct {
+    color: beige;
+}
+/* --- paragraph text color if inccorrect --- */
+.text-of-typing p span.incorrect {
+    color: rgb(211, 15, 15);
+    background-color: pink;
+    border-radius: 20px;
+}
+
+/* --- blinker --- */
+.text-of-typing p span.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 25px;
+    width: 2px;
+    background: yellow;
+    border-radius: 20px;
+    animation: blink 1s ease-in-out infinite;
+    opacity: 1;
+}
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+.text-of-typing p span {
+    position: relative;
+}
+
+/* --- responsive typing section --- */
+@media (max-width: 850px) {
+    /* Screens with a maximum width of 768px or smaller */
+    .contain {
+        width: 90%;
+        height: auto;
+        padding: 15px 10px 40px 20px;
+    }
+    .content-box .content {
+        width: 100%;
+        margin: 16px 12px 50px 25px;
+    }
+
+    .contain button {
+        width: 40%;
+        margin-top: -40px;
+    }
+}
+
+/* --- shortcut keys --- */
+.butcombo{
+  color: #666;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+}
+key{
+  margin-left: 10px;
+}
+.key{
+  background: #888;
+  color: #333;
+  padding: 2px 5px;
+  border: none;
+  border-radius: 2px;
+  margin: 0px 10px;
+}
+
+/* --- Tutorial, About & FAQs --- */
+.section{
+    width: 95%;
+    height: 100%; /* viewport hieght */
+    border-radius: 10px;
+    color: #ccc;
+    margin: 30px auto;
+    padding: 0px 0px 20px 0px;
+    background-color: #222;
+}
+
+#secHead{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 28px;
+}
+#tutorial-section, #about-section, #faq-section{
+    background-color: #00A898;
+    border: 1px solid #00A898;
+    border-radius: 10px;
+    width: 95%;
+    margin: 0px auto;
+}
+
+.tutorial, .about, .faq{
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 3px 20px;
+    background-color: #333;
+    width: 95%;
+}
+.tutorial-title, .section .tutorial p,
+.about-title, .section .about p,
+.faq-title, .section .faq p{
+    text-align: justify;
+    margin: 20px;
+}
+.tutorial-title, .about-title, .faq-title{
+    font-size: 26px;
+    color: yellow;
+    margin-top: 12px;
+}
+.difftext{
+    font-weight: bold;
+}
+
+/* --- stylish slide bar --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: yellow;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00A898;
+  /* border-radius: 5px; */
+}
+
+/* --- footer --- */
+footer {
+  background-color: #555;
+  padding: 20px 0px;
+  position: relative;
+  color: #ccc;
+}
+
+.footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- copyright text --- */
+.footer p {
+  margin: 0;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- footer links --- */
+.footer ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer ul li:last-child {
+  margin-right: 0;
+}
+
+.footer ul li a, .scroll-to-top{
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer ul li a:hover {
+  /* font-weight: bold; */
+  color: beige;
+}
+
+/* --- scroll up button --- */
+.scroll-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 15px;
+  font-size: 24px;
+  background-color: #00A898;
+  padding: 0px 8px 3px 8px;
+  border-radius: 20px;
+}
+
+.scroll-to-top.show {
+  display: block;
+}
+
+.scroll-to-top:hover{
+  background-color: black;
+}

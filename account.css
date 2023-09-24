@@ -1,0 +1,207 @@
+/* --- Account Page --- */
+
+.account {
+    padding: 60px 0px;
+}
+
+.section {
+    /* background: rgb(212, 212, 23); */
+    background-color: #00A898;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    text-align: center;
+    padding: 20px 0px;
+    margin: auto;
+    box-shadow: 0px 0px 20px 0px rgba(233, 21, 21, 0.1);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+/* --- login/sign up text --- */
+.section span {
+    width: 15px;
+    color: #222;
+    font-weight: bold;
+    padding: 0px 10px;
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
+}
+
+.section span:hover{
+    color: yellow;
+}
+.secbtn {
+    display: inline-block;
+}
+
+/* --- form --- */
+.section form {
+    max-width: 300px;
+    padding: 0px 20px;
+    position: absolute;
+    top: 130px;
+    transition: transform 1s;
+}
+
+/* --- input fields --- */
+form input {
+    background-color: #222;
+    color: white;
+    width: 100%;
+    height: 30px;
+    margin: 10px 0px;
+    padding: 0px 12px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    cursor: auto;
+}
+
+form input:focus {
+    outline: none;
+}
+form input::placeholder
+{
+    color: rgb(207, 207, 51);
+}
+form input:hover{
+    background-color: #333;
+    /* color: black; */
+}
+
+/* --- login/sign up button --- */
+form .btn {
+    height: 35px;
+    width: 100%;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0px;
+    border-radius: 20px;
+    background-color: rgb(231, 231, 14);
+    color: black;
+}
+
+form .btn:hover {
+    background-color: yellow;
+    
+}
+
+/* --- hidden login form --- */
+#loginform {
+    left: -300px;
+}
+
+#suform {
+    left: 0px;
+}
+/* .pw{
+    width: 22px;
+    height: 22px;
+    margin: auto;
+} */
+
+/* --- eye button --- */
+/* .button{
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: #00A898;
+}
+.button img{
+    cursor: pointer;
+    height: auto;
+    width: 100%;
+} */
+
+/* --- transform of login form & hr --- */
+#active {
+    width: 100px;
+    border: none;
+    background: yellow;
+    height: 3px;
+    margin-top: 8px;
+    transform: translateX(100px);
+    transition: transform 1s;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.col {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+/* --- left side texts --- */
+.col .h1 {
+    font-size: 50px;
+    line-height: 65px;
+    margin: 0px 0px 25px 60px;
+    display: inline;
+    font-family: comic sans ms;
+    color: #00A898;
+}
+
+.col .p {
+    margin-left: 63px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-style: italic;
+}
+
+/* --- keyboard image --- */
+.col img {
+    width: 200px;
+    margin-left: 60px;
+    padding-bottom: 100px;
+}
+.container .row {
+    margin-top: 50px;
+}
+
+/* --- About & FAQs --- */
+.aboutSection, .faqSection{
+    width: 95%;
+    height: 100%; /* viewport hieght */
+    border-radius: 10px;
+    color: beige;
+    margin: 20px auto;
+    padding: 0px 0px 20px 0px;
+    background-color: #222;
+}
+
+#secHead{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 28px;
+}
+#about-section, #faq-section{
+    background-color: #00A898;
+    border: 1px solid #00A898;
+    border-radius: 10px;
+    width: 95%;
+    margin: 0px auto;
+}
+
+.about, .faq{
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 3px 20px;
+    background-color: #333;
+    width: 95%;
+}
+.about-title, .faq-title, .aboutSection .about p, .faqSection .faq p{
+    text-align: justify;
+    margin: 20px;
+}
+.about-title, .faq-title{
+    font-size: 26px;
+    color: yellow;
+    margin-top: 12px;
+}

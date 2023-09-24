@@ -1,0 +1,36 @@
+/* --- Tutorial --- */
+.help{
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid red; */
+}
+
+/* --- tutorial image --- */
+.help .tutImg{
+    /* height: 100vh; */
+    /* border: 2px solid yellow; */
+    display: flex;
+    padding: 50px 0px;
+}
+
+.help .tutImg img{
+    border-radius: 15px;
+    width: 45%;
+    margin: 10px 15px 10px 30px;
+    transition:transform 0.25s ease;
+}
+
+.help .tutImg img:hover {
+    -webkit-transform:scale(1.5);
+    transform:scale(1.1);
+}
+
+/* --- iframe video --- */
+.iframevideo{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 50px 0px;
+}
+.iframevideo iframe{
+    border-radius: 15px;
+}

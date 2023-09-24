@@ -1,0 +1,68 @@
+/* --- making two boxes side to side --- */
+.main-container{
+    display: flex;
+    max-width: 1400px;
+}
+/* --- overall difficulty section --- */
+.difficulty-box{
+    width: 18%;
+    margin: 50px 5px 50px 20px;
+    padding: 10px 0px;
+    height: 100%;
+}
+
+/* --- radio button section --- */
+.difficulty-container div{
+    width: 67%;
+    margin: 0px auto;
+}
+
+/* --- arrangement of radios --- */
+#easy, #hard{
+    margin-left: -45px;
+}
+
+#medium{
+    margin-left: -12px;
+}
+
+/* --- play button --- */
+#play {
+    width: 50%;
+}
+
+.ruleLev{
+    width: 90%;
+    margin: 20px 0px 8px 10px;
+    color: white;
+    border: 2px dashed white;
+    /* display: flex; */
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.ruleLev h3{
+    font-family: comic sans ms;
+    font-style: italic;
+    color: black;
+    margin: 5px 0px;
+}
+
+.rulesList{
+    margin-left: 40px;
+    text-align: left;
+}
+.contain{
+    position: relative;
+    top: 5px;
+    right: 150px;
+}
+
+/* --- timer message --- */
+#timerMessage{
+    font-size: 20px;
+    text-align: center;
+    width: 250px;
+    height: 20px;
+    margin-top: 10px;
+}
