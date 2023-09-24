@@ -42,7 +42,7 @@ function unlockLevel(levelElement, levelNumber) {
 }
 
   // Call the unlockLevel function for each level
-unlockLevel(level1, 1);
+// unlockLevel(level1, 1);
 unlockLevel(level2, 2);
 unlockLevel(level3, 3);
 unlockLevel(level4, 4);
@@ -65,6 +65,51 @@ function checkUnlockCriteria() {
       }
     }
     // You can add similar criteria checks for other levels here
+
+    if (currentLevel === 2) {
+      // Check typing speed and accuracy criteria for level 2
+      const requiredSpeedForLevel2 = 44; // Set your required speed (e.g., 44 WPM)
+      const requiredAccuracyForLevel2 = 82; // Set your required accuracy (e.g., 82%)
+        
+      // Check if the user meets the criteria for level 2
+      const speedCriteriaMet = userSpeed >= requiredSpeedForLevel2;
+      const accuracyCriteriaMet = userAccuracy >= requiredAccuracyForLevel2;
+  
+      if (speedCriteriaMet && accuracyCriteriaMet) {
+        unlockedLevels = 3;
+        showMessage('Level 3 is unlocked!');
+      }
+    }
+
+    if (currentLevel === 3) {
+      // Check typing speed and accuracy criteria for level 3
+      const requiredSpeedForLevel3 = 46; // Set your required speed (e.g., 46 WPM)
+      const requiredAccuracyForLevel3 = 83; // Set your required accuracy (e.g., 83%)
+        
+      // Check if the user meets the criteria for level 3
+      const speedCriteriaMet = userSpeed >= requiredSpeedForLevel3;
+      const accuracyCriteriaMet = userAccuracy >= requiredAccuracyForLevel3;
+  
+      if (speedCriteriaMet && accuracyCriteriaMet) {
+        unlockedLevels = 4;
+        showMessage('Level 4 is unlocked!');
+      }
+    }
+
+    if (currentLevel === 4) {
+      // Check typing speed and accuracy criteria for level 4
+      const requiredSpeedForLevel4 = 48; // Set your required speed (e.g., 48 WPM)
+      const requiredAccuracyForLevel4 = 84; // Set your required accuracy (e.g., 84%)
+        
+      // Check if the user meets the criteria for level 1
+      const speedCriteriaMet = userSpeed >= requiredSpeedForLevel4;
+      const accuracyCriteriaMet = userAccuracy >= requiredAccuracyForLevel4;
+  
+      if (speedCriteriaMet && accuracyCriteriaMet) {
+        unlockedLevels = 5;
+        showMessage('Level 5 is unlocked!');
+      }
+    }
   }
 function calculateUserSpeed() {
     const typedCharacters = characterIndex - errors; // Number of correctly typed characters
