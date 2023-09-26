@@ -15,7 +15,7 @@ let errors = 0;
 let backspaces = 0;
 let totalTypedCharacters = 0;
 let timer;
-let maxTime = 5;
+let maxTime = 30;
 let timeLeft = maxTime;
 let isTyping = 0;
 

@@ -20,28 +20,30 @@ let errors = 0;
 let backspaces = 0;
 let totalTypedCharacters = 0;
 let timer;
-let maxTime = 5;
+let maxTime = 30;
 let timeLeft = maxTime;
 let isTyping = 0;
 // Levels unlocked initially
-let unlockedLevels = 1;
+let unlockedLevels = parseInt(localStorage.getItem('unlockedLevels')) || 1;
+
 // Initialize a variable to keep track of the user's current level
-let currentLevel = 1;
+let currentLevel = parseInt(localStorage.getItem('currentLevel')) || 1;
 
 // Function to unlock a level and display a message
 function unlockLevel(levelElement, levelNumber) {
-  levelElement.addEventListener('click', function(event) {
+  levelElement.addEventListener('click', function (event) {
     event.preventDefault();
-    if (unlockedLevels >= levelNumber) {
+    if (levelNumber <= unlockedLevels) {
       showMessage(`Welcome to Level ${levelNumber}`);
       currentLevel = levelNumber;
-    } else if (levelNumber > 1) {
-      showMessage('Complete the current level first.');
+      window.location.href = `/easylev${currentLevel}.html`; // Redirect to the selected level
+    } else {
+      showMessage('Complete the previous level first.');
     }
   });
 }
 
-  // Call the unlockLevel function for each level
+// Call the unlockLevel function for each level
 // unlockLevel(level1, 1);
 unlockLevel(level2, 2);
 unlockLevel(level3, 3);
@@ -49,91 +51,85 @@ unlockLevel(level4, 4);
 unlockLevel(level5, 5);
 
 // Check criteria to unlock levels
-function checkUnlockCriteria() {
-    if (currentLevel === 1) {
-      // Check typing speed and accuracy criteria for level 1
-      const requiredSpeedForLevel1 = 42; // Set your required speed (e.g., 42 WPM)
-      const requiredAccuracyForLevel1 = 81; // Set your required accuracy (e.g., 81%)
-        
-      // Check if the user meets the criteria for level 1
-      const speedCriteriaMet = userSpeed >= requiredSpeedForLevel1;
-      const accuracyCriteriaMet = userAccuracy >= requiredAccuracyForLevel1;
-  
-      if (speedCriteriaMet && accuracyCriteriaMet) {
-        unlockedLevels = 2;
+function checkUnlockCriteria(userSpeed, userAccuracy) {
+  if (currentLevel === 1 && unlockedLevels < 2) {
+    // Check typing speed and accuracy criteria for level 1
+    const requiredSpeedForLevel1 = 42;
+    const requiredAccuracyForLevel1 = 81;
+
+    if (userSpeed >= requiredSpeedForLevel1 && userAccuracy >= requiredAccuracyForLevel1) {
+      if (unlockedLevels < 2) {
         showMessage('Level 2 is unlocked!');
+        unlockedLevels = 2; // Unlock level 2
+        localStorage.setItem('unlockedLevels', unlockedLevels);
       }
     }
-    // You can add similar criteria checks for other levels here
+  } else if (currentLevel === 2) {
+    // Check typing speed and accuracy criteria for level 2
+    const requiredSpeedForLevel2 = 44;
+    const requiredAccuracyForLevel2 = 82;
 
-    if (currentLevel === 2) {
-      // Check typing speed and accuracy criteria for level 2
-      const requiredSpeedForLevel2 = 44; // Set your required speed (e.g., 44 WPM)
-      const requiredAccuracyForLevel2 = 82; // Set your required accuracy (e.g., 82%)
-        
-      // Check if the user meets the criteria for level 2
-      const speedCriteriaMet = userSpeed >= requiredSpeedForLevel2;
-      const accuracyCriteriaMet = userAccuracy >= requiredAccuracyForLevel2;
-  
-      if (speedCriteriaMet && accuracyCriteriaMet) {
-        unlockedLevels = 3;
+    if (userSpeed >= requiredSpeedForLevel2 && userAccuracy >= requiredAccuracyForLevel2) {
+      if (unlockedLevels < 3) {
         showMessage('Level 3 is unlocked!');
+        unlockedLevels = 3; // Unlock level 3
+        localStorage.setItem('unlockedLevels', unlockedLevels);
       }
     }
+  }
 
-    if (currentLevel === 3) {
-      // Check typing speed and accuracy criteria for level 3
-      const requiredSpeedForLevel3 = 46; // Set your required speed (e.g., 46 WPM)
-      const requiredAccuracyForLevel3 = 83; // Set your required accuracy (e.g., 83%)
-        
-      // Check if the user meets the criteria for level 3
-      const speedCriteriaMet = userSpeed >= requiredSpeedForLevel3;
-      const accuracyCriteriaMet = userAccuracy >= requiredAccuracyForLevel3;
-  
-      if (speedCriteriaMet && accuracyCriteriaMet) {
-        unlockedLevels = 4;
+  // Add similar checks for other levels
+  else if (currentLevel === 3) {
+    // Check typing speed and accuracy criteria for level 3
+    const requiredSpeedForLevel3 = 46;
+    const requiredAccuracyForLevel3 = 83;
+
+    if (userSpeed >= requiredSpeedForLevel3 && userAccuracy >= requiredAccuracyForLevel3) {
+      if (unlockedLevels < 4) {
         showMessage('Level 4 is unlocked!');
+        unlockedLevels = 4; // Unlock level 4
+        localStorage.setItem('unlockedLevels', unlockedLevels);
       }
     }
+  } else if (currentLevel === 4) {
+    // Check typing speed and accuracy criteria for level 4
+    const requiredSpeedForLevel4 = 48;
+    const requiredAccuracyForLevel4 = 84;
 
-    if (currentLevel === 4) {
-      // Check typing speed and accuracy criteria for level 4
-      const requiredSpeedForLevel4 = 48; // Set your required speed (e.g., 48 WPM)
-      const requiredAccuracyForLevel4 = 84; // Set your required accuracy (e.g., 84%)
-        
-      // Check if the user meets the criteria for level 1
-      const speedCriteriaMet = userSpeed >= requiredSpeedForLevel4;
-      const accuracyCriteriaMet = userAccuracy >= requiredAccuracyForLevel4;
-  
-      if (speedCriteriaMet && accuracyCriteriaMet) {
-        unlockedLevels = 5;
+    if (userSpeed >= requiredSpeedForLevel4 && userAccuracy >= requiredAccuracyForLevel4) {
+      if (unlockedLevels < 5) {
         showMessage('Level 5 is unlocked!');
+        unlockedLevels = 5; // Unlock level 5
+        localStorage.setItem('unlockedLevels', unlockedLevels);
       }
     }
   }
+}
+
 function calculateUserSpeed() {
-    const typedCharacters = characterIndex - errors; // Number of correctly typed characters
-    const timeInSeconds = maxTime - timeLeft; // Time taken in seconds
-  
-    // Calculate words per minute (WPM)
-    const wpm = Math.round((typedCharacters / 5) / (timeInSeconds / 60));
-    return wpm;
-  }
- function calculateUserAccuracy() {
-    const totalCharacters = characterIndex + backspaces; // Total characters typed (including backspaces)
-    const incorrectCharacters = errors + backspaces; // Incorrect characters typed (including backspaces)
-  
-    // Calculate accuracy as a percentage
-    const accuracy = ((totalCharacters - incorrectCharacters) / totalCharacters) * 100;
-    return accuracy.toFixed(2); // Return accuracy rounded to 2 decimal places
-  }
+  const typedCharacters = characterIndex - errors; // Number of correctly typed characters
+  const timeInSeconds = maxTime - timeLeft; // Time taken in seconds
+
+  // Calculate words per minute (WPM)
+  const wpm = Math.round(typedCharacters / 5 / (timeInSeconds / 60));
+  return wpm;
+}
+function calculateUserAccuracy() {
+  const totalCharacters = characterIndex + backspaces; // Total characters typed (including backspaces)
+  const incorrectCharacters = errors + backspaces; // Incorrect characters typed (including backspaces)
+
+  // Calculate accuracy as a percentage
+  const accuracy =
+    ((totalCharacters - incorrectCharacters) / totalCharacters) * 100;
+  return accuracy.toFixed(2); // Return accuracy rounded to 2 decimal places
+}
 
 // --- random paragraph generator ---
 function randomParagraph() {
   let randomIndex = Math.floor(Math.random() * paragraphs.length);
-  typing_text.innerHTML = "";
+  typing_text.innerHTML = '';
 
-  paragraphs[randomIndex].split("").forEach((span) => {
+  paragraphs[randomIndex].split('').forEach((span) => {
     let spanTag = `<span>${span}</span>`;
     typing_text.innerHTML += spanTag;
   });
@@ -145,14 +141,15 @@ randomParagraph();
 
 function initTyping() {
   const characters = typing_text.querySelectorAll('span');
-  let typedCharacter = inputField.value.split("")[characterIndex];
+  let typedCharacter = inputField.value.split('')[characterIndex];
   if (characterIndex < characters.length - 1 && timeLeft > 0) {
     if (!isTyping) {
       timer = setInterval(initTimer, 1000);
       isTyping = true;
     }
 
-    if (typedCharacter == null) { //if user typed backspace
+    if (typedCharacter == null) {
+      //if user typed backspace
       characterIndex--;
 
       if (characters[characterIndex].classList.contains('incorrect')) {
@@ -171,25 +168,26 @@ function initTyping() {
       totalTypedCharacters++;
     }
 
-    characters.forEach(span => span.classList.remove('active'));
+    characters.forEach((span) => span.classList.remove('active'));
     characters[characterIndex].classList.add('active');
     errorTag.innerText = errors;
     cpmTag.innerText = characterIndex - errors; //cpm will not count errors
-    let wpm = Math.round((((characterIndex - errors) / 5) / (maxTime - timeLeft)) * 60);
+    let wpm = Math.round(
+      ((characterIndex - errors) / 5 / (maxTime - timeLeft)) * 60
+    );
     wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
     wpmTag.innerText = wpm;
 
     // Calculate accuracy
     let accuracy = calculateAccuracy(totalTypedCharacters, errors, backspaces);
-    accuracyTag.innerText = accuracy.toFixed(2) + "%";
-
-    // Calculate user speed and accuracy here
+    accuracyTag.innerText = accuracy.toFixed(2) + '%';
+  } else {
+    inputField.value = '';
     const userSpeed = calculateUserSpeed();
     const userAccuracy = calculateUserAccuracy();
-  } else {
-    inputField.value = "";
+    console.log(userAccuracy, userSpeed);
     // Call checkUnlockCriteria after each typing test
-    checkUnlockCriteria();
+    checkUnlockCriteria(userSpeed, userAccuracy);
     clearInterval(timer);
   }
 }
@@ -203,13 +201,13 @@ function initTimer() {
     timeTag.innerText = timeLeft;
   } else {
     clearInterval(timer);
-    document.getElementById("timerMessage").textContent = "Time is up!";
+    document.getElementById('timerMessage').textContent = 'Time is up!';
     playAlertSound();
   }
 
   if (timeLeft === 0) {
     clearInterval(timer);
-    document.getElementById("timerMessage").textContent = "TIME IS UP!!";
+    document.getElementById('timerMessage').textContent = 'TIME IS UP!!';
     playAlertSound();
   }
 }
@@ -217,14 +215,14 @@ function initTimer() {
 // play alert sound when timer reaches 0
 function playAlertSound() {
   // Replace the sound file path with the actual path to your alert sound file
-  var alertSound = new Audio("alert sound.mp3");
+  var alertSound = new Audio('alert sound.mp3');
   alertSound.play();
 }
 
 // --- try again button to reset game ---
 function resetGame() {
   randomParagraph();
-  inputField.value = "";
+  inputField.value = '';
   clearInterval(timer);
   timeLeft = maxTime;
   characterIndex = 0;
@@ -232,13 +230,13 @@ function resetGame() {
   backspaces = 0;
   totalTypedCharacters = 0;
   isTyping = 0;
-  document.getElementById("timerMessage").textContent = ""; // Clear timer message
+  document.getElementById('timerMessage').textContent = ''; // Clear timer message
 
   // Reset metrics
-  errorTag.innerText = "0";
-  cpmTag.innerText = "0";
-  wpmTag.innerText = "0";
-  accuracyTag.innerText = "0.00%";
+  errorTag.innerText = '0';
+  cpmTag.innerText = '0';
+  wpmTag.innerText = '0';
+  accuracyTag.innerText = '0.00%';
 }
 button.addEventListener('click', resetGame);
 
@@ -254,7 +252,7 @@ function calculateAccuracy(typedCharacters, errors, backspaces) {
 }
 
 // Smooth scrolling when clicking on about link
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
 
@@ -262,7 +260,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (target) {
       target.scrollIntoView({
         behavior: 'smooth',
-        block: 'start'
+        block: 'start',
       });
     }
   });
@@ -270,16 +268,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // --- detect keyboard shortcuts on the home page ---
 // --- to restart test ---
-document.addEventListener('keydown', function(event) {
-
+document.addEventListener('keydown', function (event) {
   // --- check if alt and n keys are pressed simultaneously ---
   if (event.altKey && event.key === 'n') {
     resetGame();
-    document.getElementById("timerMessage").textContent = ""; // Clear timer message
+    document.getElementById('timerMessage').textContent = ''; // Clear timer message
   }
 });
 
 // Function to display a message
 function showMessage(message) {
-    alert(message);
-  }
+  alert(message);
+}
